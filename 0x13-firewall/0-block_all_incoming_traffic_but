@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Installing ufw firewall and setting rules on web-01
+
+sudo apt install -y ufw
+
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+
+sudo ufw allow 22
+sudo ufw allow 443
+sudo ufw allow 80
+
+sudo ufw enable
+sudo ufw status
