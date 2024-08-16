@@ -1,6 +1,6 @@
 # 0x19. Postmortem
 
-[!Technical Issue Resolution](./postmortem.jpeg)
+![Technical Issue Resolution](./postmortem.jpeg)
 
 ## Issue Summary
 ### Duration of the Outage:
@@ -48,4 +48,4 @@ sudo service nginx restart
 This script ensures that the correct configuration is enabled and restarts Nginx to apply the changes.
 
 ## Flow Diagram
-[!Nginx Configuration Flow](./FlowDiagram.jpeg)
+![Nginx Configuration Flow](./FlowDiagram.jpeg)
