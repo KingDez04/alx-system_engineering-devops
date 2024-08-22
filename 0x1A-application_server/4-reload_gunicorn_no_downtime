@@ -1,27 +1,7 @@
 #!/usr/bin/env bash
 # Gracefully reloads Gunicorn
 
+PID=$(pgrep -o gunicorn)
 
-MASTER_PID=$(pgrep -o gunicorn)
-
-if [ -z "$MASTER_PID" ]; then
-    echo "Gunicorn master process not found"
-    exit 1
-fi
-
-echo "Reloading Gunicorn with PID $MASTER_PID"
-
-kill -HUP "$MASTER_PID"
-
-sleep 5
-
-NEW_MASTER_PID=$(pgrep -o gunicorn)
-
-if [ "$MASTER_PID" != "$NEW_MASTER_PID" ]; then
-    echo "Gunicorn has been successfully reloaded."
-else
-    echo "Failed to reload Gunicorn. The process did not restart."
-    exit 1
-fi
-
-echo "Graceful reload of Gunicorn completed."
+# Reload
+kill -s HUP "$PID"
